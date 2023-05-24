@@ -1,4 +1,5 @@
 """Module to demonstrate how to create a neuro-fuzzy network using Python"""
+
 import numpy as np
 import skfuzzy as fuzz
 from keras.models import Sequential
@@ -9,10 +10,12 @@ np.random.seed(0)
 y_pred_fuzzy = []
 X_train = np.random.rand(1000, 3)
 y_train = np.random.rand(1000, 1)
+
 # Create fuzzy logic for input variables
 x1 = np.arange(0, 1.01, 0.01)
 x2 = np.arange(0, 1.01, 0.01)
 x3 = np.arange(0, 1.01, 0.01)
+
 # Define membership functions for each variable
 x1_lo = fuzz.trimf(x1, [0, 0, 0.5])
 x1_md = fuzz.trimf(x1, [0, 0.5, 1])
@@ -23,11 +26,13 @@ x2_hi = fuzz.trimf(x2, [0.5, 1, 1])
 x3_lo = fuzz.trimf(x3, [0, 0, 0.5])
 x3_md = fuzz.trimf(x3, [0, 0.5, 1])
 x3_hi = fuzz.trimf(x3, [0.5, 1, 1])
+
 # Define fuzzy logic rules for predicting temperature
 r1 = np.fmin(np.fmin(x1_lo, x2_lo), x3_lo)
 r2 = np.fmin(np.fmin(x1_lo, x2_lo), x3_md)
 r3 = np.fmin(np.fmin(x1_lo, x2_md), x3_hi)
 r4 = np.fmin(np.fmin(x1_hi, x2_hi), x3_hi)
+
 # Compute membership functions for each rule
 out_lo = np.fmax(r1, r2)
 out_md = r3
