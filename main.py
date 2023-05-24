@@ -5,6 +5,8 @@ from keras.layers import Dense
 
 # Generate random training data
 np.random.seed(0)
+y_pred_fuzzy = []
+
 X_train = np.random.rand(1000, 3)
 y_train = np.random.rand(1000, 1)
 # Create fuzzy logic for input variables
@@ -45,18 +47,17 @@ model.compile(loss='mse', optimizer='adam')
 model.fit(X_train, y_train, epochs=500, batch_size=32)
 
 X_test = np.random.rand(10, 3)
-print(X_test)
 y_pred = model.predict(X_test)
+print(X_test)
 print(y_pred)
 
-y_pred_fuzzy = []
 for y in y_pred:
-  if y < 0.3:
-    y_pred_fuzzy.append(out_lo)
-  elif y < 0.7:
-    y_pred_fuzzy.append(out_md)
-  else:
-    y_pred_fuzzy.append(out_hi)
+    if y < 0.3:
+        y_pred_fuzzy.append(out_lo)
+    elif y < 0.7:
+        y_pred_fuzzy.append(out_md)
+    else:
+        y_pred_fuzzy.append(out_hi)
 y_pred_fuzzy_mean = np.mean(y_pred_fuzzy)
 
 print("Mean temp: ", y_pred_fuzzy_mean)
