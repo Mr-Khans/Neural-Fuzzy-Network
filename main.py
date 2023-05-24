@@ -1,4 +1,5 @@
-"""Module that provides a function for working with numpy arrays and to work with the fuzzy-logic version and creating a neural network in of the Python version."""
+"""Module that provides a function for working with numpy arrays and to work with the fuzzy-logic version
+and creating a neural network in of the Python version."""
 import numpy as np
 import skfuzzy as fuzz
 from keras.models import Sequential
