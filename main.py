@@ -57,7 +57,6 @@ for y in y_pred:
     y_pred_fuzzy.append(out_md)
   else:
     y_pred_fuzzy.append(out_hi)
-
 y_pred_fuzzy_mean = np.mean(y_pred_fuzzy)
 
 print("Mean temp: ", y_pred_fuzzy_mean)
