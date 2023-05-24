@@ -6,7 +6,6 @@ from keras.layers import Dense
 # Generate random training data
 np.random.seed(0)
 y_pred_fuzzy = []
-
 X_train = np.random.rand(1000, 3)
 y_train = np.random.rand(1000, 1)
 # Create fuzzy logic for input variables
@@ -64,5 +63,3 @@ print("Mean temp: ", y_pred_fuzzy_mean)
 print("Low temp : ", out_lo)
 print("Mid temp : ", out_md)
 print("High temp : ", out_hi)
-
-
