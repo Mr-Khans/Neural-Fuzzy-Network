@@ -1,5 +1,8 @@
+"""Module that provides a function for working with numpy arrays of the Python version."""
 import numpy as np
+"""Module that provides a function to work with the fuzzy-logic version of Python."""
 import skfuzzy as fuzz
+"""Module that provides the function of creating a neural network in the Python version """
 from keras.models import Sequential
 from keras.layers import Dense
 
